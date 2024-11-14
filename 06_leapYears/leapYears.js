@@ -1,15 +1,16 @@
 const leapYears = function(year) {
-    if (year % 100 === 0 && !(year % 400 === 0)) {
+    const isCentury = year % 100 === 0;
+    const isYearDivisibleByFourHundred = year % 400 === 0;
+    const isYearDivisibleByFour = year % 4 === 0;
+
+    if (isCentury && !isYearDivisibleByFourHundred) {
         return false;
-    } else if (year % 4 === 0) {
+    } else if (isYearDivisibleByFour) {
         return true;
     } else {
         return false;
     }
 };
-
-//divisible by 4 = true
-// divisible by 100 and not divisible by 400 = false
 
 // Do not edit below this line
 module.exports = leapYears;
